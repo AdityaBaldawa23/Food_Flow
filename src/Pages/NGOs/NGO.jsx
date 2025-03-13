@@ -1,11 +1,11 @@
   import { useState } from "react";
   import Navbar from "../../components/ui/Navbar";
-  import "./Donor.css";
+  import Footer from "../../components/ui/Footer";
+  import "./NGO.css";
   import RegisterFoodImg from "../../assets/RegisterFoodImg.jpeg";
   import SchedulePickupImg from "../../assets/SchedulePickupImg.webp";
-  import Modal from "./ModalDonor";
 
-  export default function Donor() {
+  export default function NGO() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     return (
@@ -13,19 +13,18 @@
         <div id="app">
           <Navbar />
           <div id="donor-section">
-            <h1>Donors</h1>
+            <h1>NGOs</h1>
             <br />
             <p>
-              Turn Your Surplus into Someone's Meal. Donate Food, make a diff.
+                Connecting Meals to those in needs.
             </p>
           </div>
           <div id="register-food">
             <div id="left">
-              <h1>Register Food</h1>
-              <p>Share Excess, Reduce Waste, Feed Communities</p>
+              <h1>Confirm Deliveries</h1>
+              <p>Ensure Impact</p>
               <div id="buttons">
-                <button className="modal-toggle" onClick={() => setIsOpen(true)}>Add Details</button>
-                <button>Select Pickup Location</button>
+                <button className="modal-toggle" onClick={() => setIsOpen(true)}>Confirm</button>
               </div>
             </div>
             <div id="right">
@@ -37,29 +36,16 @@
               <img src={SchedulePickupImg} alt="" />
             </div>
             <div id="Schedule-right">
-              <h1>Schedule Pickup</h1>
-              <p>Choose a time, and let us handle</p>
+              <h1>Request Food</h1>
+              <p>Bridge the gap</p>
               <div id="buttons">
-                <button>Select TimeSlot</button>
-                <button>Reschedule</button>
+                <button>Request</button>
               </div>
             </div>
           </div>
-          <div id="Donation">
-            <div id="Donation-left">
-              <h1>Check Donation History</h1>
-              <p>Track Your Impact</p>
-              <div id="buttons">
-                <button>Check</button>
-                <button>Share</button>
-              </div>
-            </div>
-            <div id="Donation-right">
-              <img src={SchedulePickupImg} alt="" />
-            </div>
-          </div>
+          <Footer />
         </div>
-
+        
         {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
