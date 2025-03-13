@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <div id="app">
-      <div className="tracing-beam"></div>  
+      {/* <div className="tracing-beam"></div>   */}
         <Navbar />
         <img src={NavbarImg} />
         <Card />

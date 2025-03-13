@@ -21,15 +21,14 @@ body {
   padding: 12px 20px;
   border-top-left-radius:20px;
   border-top-right-radius:20px;
-  background: linear-gradient(to bottom, #1C1C1E, #2E2E30);
-    color: rgba(255, 255, 255, 0.9);  /* White with slight opacity */
-
+  /* background: linear-gradient(to bottom, #1C1C1E, #2E2E30); */
+  color: rgba(255, 255, 255, 0.9);  /* White with slight opacity */
   z-index: 1000;
   transition: all 0.3s ease-in-out;
 }
 
 #logo {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   color: black;
   text-decoration: none;
@@ -43,12 +42,12 @@ body {
 #navbar-right {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
   margin-right: 0px;
 }
 
 #navbar-right a {
-  color: rgb(62, 58, 58);
+  color: rgb(9, 9, 9);
   text-decoration: none;
   font-size: 15px;
   font-weight: normal;
