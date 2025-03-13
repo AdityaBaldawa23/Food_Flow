@@ -1,0 +1,53 @@
+/* Keeps your existing styles */
+#app {
+  padding: 10px;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #0a0a0b, #0d1b2a);
+  max-height: 90vh; /* Full viewport height */
+  overflow-y: auto; /* Enables scrolling */
+  display: flex;
+  flex-direction: column;
+  max-width: 60vw;
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+  position: relative; /* Needed for absolute positioning of beam */
+}
+
+img {
+  width: 100%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Hide scrollbar */
+#app::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tracing Beam Effect */
+/* Tracing Beam Effect */
+.tracing-beam {
+  position: absolute;
+  top: 0;
+  left: 50%; /* Centered beam */
+  width: 3px;
+  height: 100px; /* Fixed height */
+  background: linear-gradient(to bottom, #18ccfc, #6344f5, #ae48ff);
+  animation: tracingAnimation 4s linear infinite;
+  z-index: 1;
+  transform: translateX(-50%); /* Ensures centering */
+}
+
+@keyframes tracingAnimation {
+  0% {
+    top: -100px; /* Starts above the container */
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%; /* Moves to the bottom */
+    opacity: 0;
+  }
+}
+
