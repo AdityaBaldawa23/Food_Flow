@@ -62,38 +62,22 @@
     color: #666; /* Soft gray text */
 }
 
-/* Buttons */
-#buttons {
-    display: flex;
-    gap: 15px;
-}
-
 #buttons button {
-    padding: 5px;
-    font-size: .7rem;
-    font-weight: 300;
+    height: 50px;
+    width: 150px;
+    padding: 10px 15px !important;
+    font-size: 1rem !important;
+    font-weight: 500;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: 0.3s ease;
+    background-color: black !important; 
+    color: white !important; /* White text for contrast */
 }
 
-#buttons button:first-child {
-    background-color: black;
-    color: white;
-}
-
-#buttons button:first-child:hover {
-    background-color: #333;
-}
-
-#buttons button:last-child {
-    background-color: #e0e0e0;
-    color: black;
-}
-
-#buttons button:last-child:hover {
-    background-color: #d6d6d6;
+#buttons button:hover {
+    background-color: #333 !important; /* Slightly lighter black on hover */
 }
 
 /* Right section */

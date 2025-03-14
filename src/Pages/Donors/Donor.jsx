@@ -1,96 +1,120 @@
-  import { useState } from "react";
-  import Navbar from "../../components/ui/Navbar";
-  import "./Donor.css";
-  import RegisterFoodImg from "../../assets/RegisterFoodImg.jpeg";
-  import SchedulePickupImg from "../../assets/SchedulePickupImg.webp";
-  import Modal from "./ModalDonor";
+import { useState } from "react";
+import axios from "axios"; // Import axios for API requests
+import Navbar from "../../components/ui/Navbar";
+import Footer from "../../components/ui/Footer";
+import "./Donor.css";
+import RegisterFoodImg from "../../assets/RegisterFoodImg.jpeg";
+import SchedulePickupImg from "../../assets/SchedulePickupImg.webp";
 
-  export default function Donor() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-      <>
-        <div id="app">
-          <Navbar />
-          <div id="donor-section">
-            <h1>Donors</h1>
-            <br />
-            <p>
-              Turn Your Surplus into Someone's Meal. Donate Food, make a diff.
-            </p>
+export default function Donor() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    foodType: "",
+    minServings: "",
+    foodCategory: "",
+    numKGs: "",
+    numDishes: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFoodType = (type) => {
+    setFormData({ ...formData, foodType: type });
+  };
+
+  const handleFoodCategory = (category) => {
+    setFormData({ ...formData, foodCategory: category });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:5000/api/donations", formData);
+      console.log("Data saved:", response.data);
+      setIsOpen(false); // Close modal after successful submission
+    } catch (error) {
+      console.error("Error saving data:", error);
+    }
+  };
+
+  return (
+    <>
+      <div id="app">
+        <Navbar />
+        <div id="donor-section">
+          <h1>Donors</h1>
+          <p>Turn Your Surplus into Someone's Meal. Donate Food, make a difference.</p>
+        </div>
+
+        <div id="register-food">
+          <div id="left">
+            <h1>Register Food</h1>
+            <p>Share Excess, Reduce Waste, Feed Communities</p>
+            <div id="buttons">
+              <button onClick={() => setIsOpen(true)}>Add Details</button>
+            </div>
           </div>
-          <div id="register-food">
-            <div id="left">
-              <h1>Register Food</h1>
-              <p>Share Excess, Reduce Waste, Feed Communities</p>
-              <div id="buttons">
-                <button className="modal-toggle" onClick={() => setIsOpen(true)}>Add Details</button>
-                <button>Select Pickup Location</button>
-              </div>
-            </div>
-            <div id="right">
-              <img src={RegisterFoodImg} alt="" />
-            </div>
-          </div>
-          <div id="Schedule-Pickup">
-            <div id="Schedule-left">
-              <img src={SchedulePickupImg} alt="" />
-            </div>
-            <div id="Schedule-right">
-              <h1>Schedule Pickup</h1>
-              <p>Choose a time, and let us handle</p>
-              <div id="buttons">
-                <button>Select TimeSlot</button>
-                <button>Reschedule</button>
-              </div>
-            </div>
-          </div>
-          <div id="Donation">
-            <div id="Donation-left">
-              <h1>Check Donation History</h1>
-              <p>Track Your Impact</p>
-              <div id="buttons">
-                <button>Check</button>
-                <button>Share</button>
-              </div>
-            </div>
-            <div id="Donation-right">
-              <img src={SchedulePickupImg} alt="" />
-            </div>
+          <div id="right">
+            <img src={RegisterFoodImg} alt="Register Food" />
           </div>
         </div>
 
-        {isOpen && (
+        <div id="Donation">
+          <div id="Donation-left">
+            <h1>Check Donation History</h1>
+            <p>Track Your Impact</p>
+            <div id="buttons">
+              <button>Check</button>
+            </div>
+          </div>
+          <div id="Donation-right">
+            <img src={SchedulePickupImg} alt="Donation History" />
+          </div>
+        </div>
+
+        <Footer />
+      </div>
+
+      {/* Modal */}
+      {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3>Sign in to our platform</h3>
-              <button className="close-btn" onClick={() => setIsOpen(false)}>
-                &times;
-              </button>
+              <h3>Food Donation Filters</h3>
+              <button className="close-btn" onClick={() => setIsOpen(false)}>&times;</button>
             </div>
             <div className="modal-body">
-              <form>
-                <label>Email</label>
-                <input type="email" placeholder="name@company.com" required />
-                
-                <label>Password</label>
-                <input type="password" placeholder="••••••••" required />
-                
-                <div className="remember-forgot">
-                  <label>
-                    <input type="checkbox" /> Remember me
-                  </label>
-                  <a href="#">Lost Password?</a>
+              <form onSubmit={handleSubmit}>
+                <label>Food Type</label>
+                <div className="food-type">
+                  <button type="button" className={`food-btn ${formData.foodType === "VEG" ? "active" : ""}`} onClick={() => handleFoodType("VEG")}>VEG</button>
+                  <button type="button" className={`food-btn ${formData.foodType === "NON-VEG" ? "active" : ""}`} onClick={() => handleFoodType("NON-VEG")}>NON-VEG</button>
                 </div>
-                
-                <button type="submit" className="submit-btn">Login</button>
-                <p>Not registered? <a href="#">Create account</a></p>
+
+                <label>Min. Servings</label>
+                <input type="number" name="minServings" placeholder="Enter min. servings" required onChange={handleChange} />
+
+                <label>Food Category</label>
+                <div className="food-category">
+                  <button type="button" className={`category-btn ${formData.foodCategory === "HOTELS" ? "active" : ""}`} onClick={() => handleFoodCategory("HOTELS")}>HOTELS</button>
+                  <button type="button" className={`category-btn ${formData.foodCategory === "EVENTS" ? "active" : ""}`} onClick={() => handleFoodCategory("EVENTS")}>EVENTS</button>
+                  <button type="button" className={`category-btn ${formData.foodCategory === "WEDDINGS" ? "active" : ""}`} onClick={() => handleFoodCategory("WEDDINGS")}>WEDDINGS</button>
+                </div>
+
+                <label>Estimated Food</label>
+                <div className="food-estimation">
+                  <input type="number" name="numKGs" placeholder="No. of KGs" required onChange={handleChange} />
+                  <input type="number" name="numDishes" placeholder="No. of dishes" required onChange={handleChange} />
+                </div>
+
+                <button type="submit" className="next-btn">NEXT</button>
               </form>
             </div>
           </div>
         </div>
       )}
-      </>
-    );
-  }
+    </>
+  );
+}

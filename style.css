@@ -1,0 +1,103 @@
+/* Sexy Chatbot UI */
+body {
+    font-family: "Poppins", sans-serif;
+    /* background: linear-gradient(135deg, #2c3e50, #4ca1af); */
+    /* background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); Deep midnight blue gradient */
+    background: linear-gradient(135deg, #000000, #1a237e, #00bcd4);
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    width: 400px;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.chat-bubble {
+    max-width: 80%;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.bot {
+    align-self: flex-start;
+    background: #4ca1af;
+    color: white;
+    border-radius: 12px 12px 12px 0;
+}
+
+.user {
+    align-self: flex-end;
+    background: #3498db;
+    color: white;
+    border-radius: 12px 12px 0 12px;
+}
+
+.input-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.menu-btn {
+    flex: 1;
+    min-width: 120px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.menu-btn:hover {
+    background: #2ecc71;
+    transform: scale(1.05);
+}
+
+.menu-btn:active {
+    transform: scale(0.95);
+}
+
+/* Smooth fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

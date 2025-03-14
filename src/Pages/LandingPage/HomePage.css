@@ -2,14 +2,17 @@
 #app {
   padding: 10px;
   border-radius: 20px;
-  background: linear-gradient(to bottom, #0a0a0b, #0d1b2a);
-  max-height: 90vh; /* Full viewport height */
-  overflow-y: auto; /* Enables scrolling */
+  /* background: linear-gradient(135deg, #4F7942, #F4A7B9) */
+  background: linear-gradient(135deg, #B2BEB5, #708090) !important;
+  max-height: 90vh; 
+  overflow-y: auto; 
   display: flex;
   flex-direction: column;
-  max-width: 60vw;
+  /* max-width: 60vw; */
+  max-width: 80vw;
   scrollbar-width: none; /* Hides scrollbar in Firefox */
   position: relative; /* Needed for absolute positioning of beam */
+  /* background-color: black; */
 }
 
 img {

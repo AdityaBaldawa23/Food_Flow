@@ -8,10 +8,8 @@ export default function Navbar() {
           Food<span id="flow">Flow</span>
         </a>
         <div id="navbar-right">
-          <a class="active" href="index.html" id="home-btn">
-            Home
-          </a>
-          <a href="AboutUs/AboutUs.html">About Us</a>
+          <a class="active" href="index" id="home-btn">Home</a>
+          <a href="">About Us</a>
           <a href="Gallery/Gallery.html">Contact Us</a>
           <a href="Services/Services.html">
             <button class="donatebtn">Donate</button>

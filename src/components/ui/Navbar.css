@@ -22,6 +22,7 @@ body {
   border-top-left-radius:20px;
   border-top-right-radius:20px;
   /* background: linear-gradient(to bottom, #1C1C1E, #2E2E30); */
+  background: #2C3E3A;
   color: rgba(255, 255, 255, 0.9);  /* White with slight opacity */
   z-index: 1000;
   transition: all 0.3s ease-in-out;
