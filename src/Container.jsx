@@ -1,21 +1,40 @@
 import App from "./App";
 import "./Container.css";
-import Navbar from "./components/ui/Navbar";
 import RightImage from "./assets/Right Image.png";
-import LeftImage from "./assets/left.png"
-import Logo from "./assets/FoodFlow_Logo.png"
+import LeftImage from "./assets/left.png";
+import Logo from "./assets/FoodFlow_Logo.png";
 
 export default function Container() {
   return (
     <>
-      <div className="background"></div> {/* Blurred Background */}
-      {/* <img src={Logo} style={{ height: "50px", width: "300px", marginLeft: "0px", marginTop: "0px" }} /> */}
+      <div class="background">
+        <video autoPlay muted loop>
+          <source src= "./assets/back.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div id="box">
-        <img src={LeftImage} style={{ height: "400px", width: "auto", marginTop: "395px", marginRight: "25px" }} />
+        <img
+          src={LeftImage}
+          style={{
+            height: "500px",
+            width: "auto",
+            marginTop: "395px",
+            marginRight: "25px",
+          }}
+        />
         <div id="container">
           <App />
         </div>
-        <img src={RightImage} style={{ height: "400px", width: "auto", marginTop: "395px", marginLeft: "25px" }} />
+        <img
+          src={RightImage}
+          style={{
+            height: "500px",
+            width: "auto",
+            marginTop: "395px",
+            marginLeft: "25px",
+          }}
+        />
       </div>
     </>
   );

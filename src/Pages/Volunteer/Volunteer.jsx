@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 import Navbar from "../../components/ui/Navbar";
 import Footer from "../../components/ui/Footer";
 import "./Volunteer.css";
@@ -9,6 +10,7 @@ import Modal from "../Donors/ModalDonor";
 export default function Volunteer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <>
       <div id="app">
@@ -49,7 +51,7 @@ export default function Volunteer() {
             <h1>Check Rewards</h1>
             <p>Your Impact, your rewards</p>
             <div id="buttons">
-              <button>Claim Rewards</button>
+            <button onClick={() => navigate("/chatbot")}>Go to chatbot</button>
             </div>
           </div>
           <div id="Donation-right">

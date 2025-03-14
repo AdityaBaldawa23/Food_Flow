@@ -2,7 +2,7 @@
   import Navbar from "../../components/ui/Navbar";
   import Footer from "../../components/ui/Footer";
   import "./NGO.css";
-  import RegisterFoodImg from "../../assets/RegisterFoodImg.jpeg";
+  import NGOConfirm from "../../assets/ngoconfirm.jpg";
   import SchedulePickupImg from "../../assets/SchedulePickupImg.webp";
 
   export default function NGO() {
@@ -28,7 +28,7 @@
               </div>
             </div>
             <div id="right">
-              <img src={RegisterFoodImg} alt="" />
+              <img src={NGOConfirm} alt="" style={{height: "200px"}}/>
             </div>
           </div>
           <div id="Schedule-Pickup">

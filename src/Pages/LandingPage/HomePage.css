@@ -1,18 +1,19 @@
-/* Keeps your existing styles */
+html body #app {
+  width: 65vw;
+  background: linear-gradient(135deg, #B2BEB5, #708090) !important;
+}
+
 #app {
   padding: 10px;
   border-radius: 20px;
-  /* background: linear-gradient(135deg, #4F7942, #F4A7B9) */
   background: linear-gradient(135deg, #B2BEB5, #708090) !important;
   max-height: 90vh; 
   overflow-y: auto; 
   display: flex;
   flex-direction: column;
-  /* max-width: 60vw; */
-  max-width: 80vw;
-  scrollbar-width: none; /* Hides scrollbar in Firefox */
-  position: relative; /* Needed for absolute positioning of beam */
-  /* background-color: black; */
+  scrollbar-width: none;
+  position: relative; 
+  z-index: 2;
 }
 
 img {
@@ -26,8 +27,6 @@ img {
   display: none;
 }
 
-/* Tracing Beam Effect */
-/* Tracing Beam Effect */
 .tracing-beam {
   position: absolute;
   top: 0;

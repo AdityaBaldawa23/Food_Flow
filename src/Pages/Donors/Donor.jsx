@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios"; // Import axios for API requests
+import axios from "axios";
 import Navbar from "../../components/ui/Navbar";
 import Footer from "../../components/ui/Footer";
 import "./Donor.css";
@@ -70,7 +70,7 @@ export default function Donor() {
             </div>
           </div>
           <div id="Donation-right">
-            <img src={SchedulePickupImg} alt="Donation History" />
+            <img src={SchedulePickupImg} alt="Donation History"/>
           </div>
         </div>
 

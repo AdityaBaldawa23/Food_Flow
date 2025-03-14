@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import NGO from './Pages/NGOs/NGO'
 import Volunteer from './Pages/Volunteer/Volunteer'
+import Chatbot from './Pages/ChatBot/ChatBot';
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Route path="/donors" element={<Donor />} />
           <Route path="/NGOs" element={<NGO />} />
           <Route path="/Volunteer" element={<Volunteer />} />
+          <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
       </BrowserRouter>
     </>
