@@ -13,7 +13,7 @@ export default function Container() {
   {/* Left Section with Logo and Left Image */}
   <div className="left-container">
     <img src={Logo} className="logo" alt="FoodFlow Logo" style={{height:"160px", borderRadius:"8px"}}/>
-    <img src={LeftImage} className="side-image" alt="Left Illustration" />
+    <img src={LeftImage} className="side-image" alt="Left Illustration" style={{position: "fixed", bottom: "5px"}}/>
   </div>
 
   {/* Center Section with App */}
@@ -23,7 +23,7 @@ export default function Container() {
 
   {/* Right Section with Right Image */}
   <div className="right-container">
-    <img src={RightImage} className="side-image" alt="Right Illustration" style={{marginTop: "310px"}}/>
+    <img src={RightImage} className="side-image" alt="Right Illustration" style={{position: "fixed", bottom: "5px"}}/>
   </div>
 </div>
 

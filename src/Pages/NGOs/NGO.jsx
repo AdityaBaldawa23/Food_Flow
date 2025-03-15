@@ -4,6 +4,7 @@ import Footer from "../../components/ui/Footer";
 import "./NGO.css";
 import NGOConfirm from "../../assets/ngoconfirm.jpg";
 import SchedulePickupImg from "../../assets/request.jpg";
+import axios from "axios";
 
 export default function NGO() {
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
@@ -26,6 +27,12 @@ export default function NGO() {
   };
 
   const handleConfirm = () => {
+    axios.post("http://localhost:5000/api/confirm-delivery", confirmData)
+      .then(response => {
+        console.log(response.data);
+        setIsConfirmModalOpen(false);
+      })
+      .catch(error => console.error("Error confirming delivery:", error));
     console.log("Confirmed Data:", confirmData);
     setIsConfirmModalOpen(false);
   };
@@ -64,24 +71,36 @@ export default function NGO() {
             <h1>Confirm Deliveries</h1>
             <p>Ensure Impact</p>
             <div id="buttons">
-              <button onClick={() => setIsConfirmModalOpen(true)}>Confirm</button>
+              <button onClick={() => setIsConfirmModalOpen(true)}>
+                Confirm
+              </button>
             </div>
           </div>
           <div id="right">
-            <img src={NGOConfirm} alt="Confirm Deliveries" style={{ height: "200px" }} />
+            <img
+              src={NGOConfirm}
+              alt="Confirm Deliveries"
+              style={{ height: "200px" }}
+            />
           </div>
         </div>
 
         {/* Request Food Section */}
         <div id="Schedule-Pickup">
           <div id="Schedule-left">
-            <img src={SchedulePickupImg} alt="Request Food" style={{ height: "200px" }} />
+            <img
+              src={SchedulePickupImg}
+              alt="Request Food"
+              style={{ height: "200px" }}
+            />
           </div>
           <div id="Schedule-right">
             <h1>Request Food</h1>
             <p>Bridge the gap</p>
             <div id="buttons">
-              <button onClick={() => setIsRequestModalOpen(true)}>Request</button>
+              <button onClick={() => setIsRequestModalOpen(true)}>
+                Request
+              </button>
             </div>
           </div>
         </div>
@@ -91,34 +110,53 @@ export default function NGO() {
 
       {/* Confirm Delivery Modal */}
       {isConfirmModalOpen && (
-        <div className="modal-overlay" onClick={() => setIsConfirmModalOpen(false)}>
-          <div className="modal-content confirm-modal" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="modal-overlay"
+          onClick={() => setIsConfirmModalOpen(false)}
+        >
+          <div
+            className="modal-content confirm-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="modal-header">
               <h3>Confirm Delivery</h3>
-              <button className="close-btn" onClick={() => setIsConfirmModalOpen(false)}>&times;</button>
+              <button
+                className="close-btn"
+                onClick={() => setIsConfirmModalOpen(false)}
+              >
+                &times;
+              </button>
             </div>
             <div className="modal-body">
               <label className="input-label">Donor</label>
-              <input
-                type="text"
+              <select
                 name="donorName"
-                placeholder="Name of Donor"
                 value={confirmData.donorName}
                 onChange={handleConfirmChange}
                 className="input-field"
-              />
+              >
+                <option value="">Select a Donor</option>
+                <option value="WoodHouse">WoodHouse</option>
+                <option value="Rajput Royals">Rajput Royals</option>
+                <option value="O2">O2</option>
+              </select>
 
               <label className="input-label">Volunteer</label>
-              <input
-                type="text"
+              <select
                 name="volunteerName"
-                placeholder="Name of Volunteer"
                 value={confirmData.volunteerName}
                 onChange={handleConfirmChange}
                 className="input-field"
-              />
+              >
+                <option value="">Select a Volunteer</option>
+                <option value="Rishii">Rishii</option>
+                <option value="Aditya">Aditya</option>
+                <option value="Neil">Neil</option>
+              </select>
 
-              <button className="confirm-btn" onClick={handleConfirm}>CONFIRM</button>
+              <button className="confirm-btn" onClick={handleConfirm}>
+                CONFIRM
+              </button>
             </div>
           </div>
         </div>
@@ -126,34 +164,89 @@ export default function NGO() {
 
       {/* Request Food Modal */}
       {isRequestModalOpen && (
-        <div className="modal-overlay" onClick={() => setIsRequestModalOpen(false)}>
+        <div
+          className="modal-overlay"
+          onClick={() => setIsRequestModalOpen(false)}
+        >
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Food Donation Request</h3>
-              <button className="close-btn" onClick={() => setIsRequestModalOpen(false)}>&times;</button>
+              <button
+                className="close-btn"
+                onClick={() => setIsRequestModalOpen(false)}
+              >
+                &times;
+              </button>
             </div>
             <div className="modal-body">
               <form onSubmit={handleRequestSubmit}>
                 <label>Food Type</label>
                 <div className="food-type">
-                  <button type="button" className={`food-btn ${formData.foodType === "VEG" ? "veg" : ""}`} onClick={() => handleFoodType("VEG")}>VEG</button>
-                  <button type="button" className={`food-btn ${formData.foodType === "NON-VEG" ? "non-veg" : ""}`} onClick={() => handleFoodType("NON-VEG")}>NON-VEG</button>
+                  <button
+                    type="button"
+                    className={`food-btn ${
+                      formData.foodType === "VEG" ? "veg" : ""
+                    }`}
+                    onClick={() => handleFoodType("VEG")}
+                  >
+                    VEG
+                  </button>
+                  <button
+                    type="button"
+                    className={`food-btn ${
+                      formData.foodType === "NON-VEG" ? "non-veg" : ""
+                    }`}
+                    onClick={() => handleFoodType("NON-VEG")}
+                  >
+                    NON-VEG
+                  </button>
                 </div>
 
                 <label>Min. Servings</label>
-                <input type="number" name="minServings" placeholder="Enter min. servings" required onChange={handleRequestChange} />
+                <input
+                  type="number"
+                  name="minServings"
+                  placeholder="Enter min. servings"
+                  required
+                  onChange={handleRequestChange}
+                />
 
                 <label>Food Category</label>
                 <div className="food-category">
-                  <button type="button" className="category-btn" onClick={() => handleFoodCategory("HOTELS")}>HOTELS</button>
-                  <button type="button" className="category-btn" onClick={() => handleFoodCategory("EVENTS")}>EVENTS</button>
-                  <button type="button" className="category-btn" onClick={() => handleFoodCategory("WEDDINGS")}>WEDDINGS</button>
+                  <button
+                    type="button"
+                    className="category-btn"
+                    onClick={() => handleFoodCategory("HOTELS")}
+                  >
+                    HOTELS
+                  </button>
+                  <button
+                    type="button"
+                    className="category-btn"
+                    onClick={() => handleFoodCategory("EVENTS")}
+                  >
+                    EVENTS
+                  </button>
+                  <button
+                    type="button"
+                    className="category-btn"
+                    onClick={() => handleFoodCategory("WEDDINGS")}
+                  >
+                    WEDDINGS
+                  </button>
                 </div>
 
                 <label>Required On</label>
-                <input type="date" name="numKGs" required onChange={handleRequestChange} />
+                <input
+                  type="date"
+                  name="numKGs"
+                  required
+                  onChange={handleRequestChange}
+                />
 
-                <button type="submit" className="next-btn">REQUEST</button>
+                <button type="submit" className="next-btn">
+                  REQUEST
+                </button>
               </form>
             </div>
           </div>

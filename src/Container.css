@@ -66,6 +66,9 @@ body, html {
 .logo {
     width: 200px;
     margin-bottom: 150px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
 } 
 
 /* Side Images */
@@ -73,6 +76,7 @@ body, html {
     height: 500px;
     width: auto;
 }
+
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
