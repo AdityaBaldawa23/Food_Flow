@@ -16,7 +16,7 @@ export default function Volunteer() {
     <>
       <div id="app">
         <Navbar />
-        <div id="donor-section">
+        <div id="v-section">
           <h1>Volunteers</h1>
           <br />
           <p>Deliver Food, Spread Hope!!</p>
@@ -52,7 +52,7 @@ export default function Volunteer() {
             <h1>Check Rewards</h1>
             <p>Your Impact, your rewards</p>
             <div id="buttons">
-            <button onClick={() => navigate("/vr")}>Reward Section</button>
+            <button style= {{width: "200px"}} onClick={() => navigate("/vr")}>Reward Section</button>
             </div>
           </div>
           <div id="Donation-right">
@@ -75,10 +75,10 @@ export default function Volunteer() {
               <form>
                 <label>Do you accept this order</label>
                 <div className="food-type">
-                  <button type="button" className="food-btn veg">
+                  <button type="button" className="food-btn veg" style={{color:"white"}}>
                     Yes
                   </button>
-                  <button type="button" className="food-btn non-veg">
+                  <button type="button" className="food-btn non-veg" style={{color:"white"}}>
                     No
                   </button>
                 </div>

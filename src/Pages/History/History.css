@@ -1,12 +1,19 @@
 .donation-history {
-    min-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+  min-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: auto; /* Enables scrolling */
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+.donation-history::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+}
+
   
   h3 {
     color: #000000;

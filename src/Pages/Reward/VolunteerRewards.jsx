@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./VolunteerRewards.css"; // Import Vanilla CSS
+import "./VolunteerRewards.css"; 
+import { useNavigate } from "react-router-dom";
 
 const MAX_POINTS = 1000;
 
 const VolunteerRewards = () => {
-  const [points, setPoints] = useState(250); // Example user points
+  const [points, setPoints] = useState(250); 
 
   const rewards = [
     { name: "BRONZE BADGE", points: 100, img: "🥉", increment: 10, available: points >= 100 },
@@ -19,6 +20,8 @@ const VolunteerRewards = () => {
       return newPoints >= MAX_POINTS ? 100 : newPoints;
     });
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="volunteer-container">
@@ -60,6 +63,7 @@ const VolunteerRewards = () => {
         <h3 className="impact-title">Your Impact</h3>
         <p className="impact-text">You have contributed to distributing 50+ meals!</p>
       </div>
+      <button  style={{backgroundColor: "green", marginTop: "20px", padding: "20px", borderRadius: "8px", fontSize: "20px"}} onClick={() => navigate("/volunteer")}>Back to Main Page</button>
     </div>
   );
 };

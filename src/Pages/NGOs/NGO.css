@@ -41,7 +41,7 @@
     border-radius: 10px;
     margin: 20px auto;
     width: 100% !important;
-    height: 250px;
+    height: 350px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -103,3 +103,101 @@
     height: auto;
     border-radius: 10px;
 }
+
+/* VEG = Green, NON-VEG = Red
+.food-btn.veg {
+    background-color: green;
+    color: white;
+  }
+  
+  .food-btn.non-veg {
+    background-color: red;
+    color: white;
+  }
+   */
+/* VEG & NON-VEG Button Styling */
+.food-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* VEG Button - Green */
+  .food-btn:nth-child(1) {
+    background-color: #28a745; /* Green */
+    color: white;
+  }
+  
+  .food-btn:nth-child(1):hover {
+    background-color: #218838;
+    box-shadow: 0px 0px 10px rgba(40, 167, 69, 0.8);
+  }
+  
+  /* NON-VEG Button - Red */
+  .food-btn:nth-child(2) {
+    background-color: #dc3545; /* Red */
+    color: white;
+  }
+  
+  .food-btn:nth-child(2):hover {
+    background-color: #c82333;
+    box-shadow: 0px 0px 10px rgba(220, 53, 69, 0.8);
+  }
+  
+  /* Active State */
+  .food-btn.active {
+    outline: 3px solid rgba(0, 0, 0, 0.2);
+  }
+  
+
+  /* Category Buttons Black */
+  .category-btn {
+    background: black;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .category-btn:hover {
+    background: grey;
+  }
+  
+  /* Confirm Button */
+  .confirm-btn {
+    background: #16a34a;
+    color: black;
+    font-weight: bold;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .confirm-btn:hover {
+    background: #0f8a3c;
+  }
+
+  /* Increase vertical spacing between Donor & Volunteer fields */
+.input-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px; /* Increased space */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

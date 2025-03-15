@@ -1,7 +1,7 @@
 #donor-section {
     background-image: url('../../assets/DonorFood.webp'); /* Ensure correct path */
-    /* background-size: 200% cover; */
-    /* background-position: center;
+    background-size: 200% cover;
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@
     align-items: center;
     text-align: center;
     padding: 20px;
-    color: white;  */
+    color: rgb(251, 253, 251); 
     margin-top: -35px;
     min-height: 570px; 
 }

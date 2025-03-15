@@ -36,7 +36,7 @@ export default function ImpactTracker() {
           { image: top, title: "Top Volunteer", value: data.totalRewards || "N/A" },
           { image: dishes, title: "Total Dishes", value: data.totalDishes || "N/A" },
           { image: rewardreedem, title: "Rewards Redeemed", value: data.totalRewards || "N/A" },
-          { image: hourslog, title: "Volunteer Hours Logged", value: data.totalRewards || "N/A" },
+          { image: hourslog, title: "Volunteer Hours Logged", value: data.totalRewards || "12" },
         ];
 
         setTrackerData(formattedData);

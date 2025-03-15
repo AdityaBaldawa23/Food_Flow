@@ -23,7 +23,7 @@ export default function Container() {
 
   {/* Right Section with Right Image */}
   <div className="right-container">
-    <img src={RightImage} className="side-image" alt="Right Illustration" style={{marginTop: "395px"}}/>
+    <img src={RightImage} className="side-image" alt="Right Illustration" style={{marginTop: "310px"}}/>
   </div>
 </div>
 

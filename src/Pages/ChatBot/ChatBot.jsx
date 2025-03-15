@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ChatBot.css";
+import { useNavigate } from "react-router-dom";
 
 const subcategories = {
   Perishable: [
@@ -11,6 +12,8 @@ const subcategories = {
   ],
   "Semi-Perishable": ["Bakery Items", "Cooked Food", "Soft Cheeses"],
 };
+
+
 
 const categoryQuestions = {
   "Dairy Products": [
@@ -318,6 +321,8 @@ const Chatbot = () => {
     setMessages((prev) => [...prev, { sender: "bot", text: resultMessage }]);
   };
 
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="chat-container">
@@ -410,8 +415,10 @@ const Chatbot = () => {
             </button>
           )}
         </div>
-
       </div>
+      <button className="btn" id="button-back" onClick={()=>navigate('/volunteer')}>
+              Back to Main Page
+      </button>
     </>
   );
 };

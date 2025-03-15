@@ -114,6 +114,7 @@ body {
   background: linear-gradient(110deg, #ff8c42 45%, #a0522d 55%, #ff8c42);
 }
 
+
 .donatebtn:focus {
   outline: none;
   box-shadow: 0 0 0 2px #ff8c42, 0 0 0 4px #fff5eb;

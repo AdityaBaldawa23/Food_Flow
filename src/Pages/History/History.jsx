@@ -7,7 +7,7 @@ const DonationHistory = () => {
   const [sortBy, setSortBy] = useState(null);
 
   const donations = [
-    { name: "Helping Hands", weight: 20, date: "12 March", type: "VEG" },
+    { name: "Helping Hands", weight: 20, date: "12 March", type: "VEG"},
     { name: "JohnDoe92", weight: 15, date: "9 March", type: "NON-VEG" },
     { name: "EmilyCares", weight: 21, date: "5 March", type: "VEG" },
     { name: "Food For All", weight: 20, date: "1 March", type: "NON-VEG" },
@@ -61,13 +61,13 @@ const DonationHistory = () => {
             <span>{entry.name}</span>
             <span>{entry.weight} KG</span>
             <span>{entry.date}</span>
-            <span className={`donation-type ${entry.type === "VEG" ? "veg" : "non-veg"}`}>
+            <span className={`donation-type ${entry.type === "VEG" ? "veg" : "non-veg"}`} style={{color : "white"}}>
               {entry.type}
             </span>
           </div>
         ))}
       </div>
-      <button className="back-btn" style={{backgroundColor: "green", marginTop: "20px", padding: "20px", borderRadius: "8px", fontSize: "20px"}} onClick={() => navigate("/donors")}>
+      <button className="back-btn" style={{backgroundColor: "green", marginTop: "20px", padding: "20px", borderRadius: "8px", fontSize: "20px", color : "white"}} onClick={() => navigate("/donors")}>
         Back to Main Page
       </button>
     </div>

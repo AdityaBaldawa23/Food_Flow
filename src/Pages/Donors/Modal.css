@@ -70,12 +70,17 @@
   margin: 0;
 }
 
+/* Close Button (No Background) */
 .close-btn {
-  background: none;
-  border: none;
+  all: unset;  /* Removes all default button styles */
   font-size: 24px;
   cursor: pointer;
   color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -217,3 +222,4 @@
     width: 90%;
   }
 }
+
