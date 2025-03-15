@@ -1,18 +1,6 @@
 /* Sexy Chatbot UI */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #000000, #1a237e, #00bcd4);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 10px;
-}
-
 /* Chat Container */
 .chat-container {
     width: 100%;
@@ -76,7 +64,7 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-button {
+.btn {
     flex: 1;
     min-width: 120px; /* Smaller Size */
     background: linear-gradient(135deg, #66bb6a, #43a047); /* Light Green Material Theme */
@@ -101,20 +89,20 @@ button {
 }
 
 /* Hover Effect */
-button:hover {
+.btn:hover {
     background: linear-gradient(135deg, #43a047, #388e3c);
     box-shadow: 0 4px 12px rgba(67, 160, 71, 0.5);
     transform: translateY(-2px);
 }
 
 /* Click Effect */
-button:active {
+.btn:active {
     transform: scale(0.96);
     box-shadow: 0 2px 6px rgba(67, 160, 71, 0.5);
 }
 
 /* Soft Ripple Effect (Material Style) */
-button::before {
+.btn::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -127,7 +115,7 @@ button::before {
     transform: translate(-50%, -50%) scale(0.5);
 }
 
-button:hover::before {
+.btn:hover::before {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }

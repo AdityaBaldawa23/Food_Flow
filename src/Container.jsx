@@ -4,38 +4,30 @@ import RightImage from "./assets/Right Image.png";
 import LeftImage from "./assets/left.png";
 import Logo from "./assets/FoodFlow_Logo.png";
 
+
 export default function Container() {
   return (
     <>
-      <div class="background">
-        <video autoPlay muted loop>
-          <source src= "./assets/back.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      <div class="background"></div>
       <div id="box">
-        <img
-          src={LeftImage}
-          style={{
-            height: "500px",
-            width: "auto",
-            marginTop: "395px",
-            marginRight: "25px",
-          }}
-        />
-        <div id="container">
-          <App />
-        </div>
-        <img
-          src={RightImage}
-          style={{
-            height: "500px",
-            width: "auto",
-            marginTop: "395px",
-            marginLeft: "25px",
-          }}
-        />
-      </div>
+  {/* Left Section with Logo and Left Image */}
+  <div className="left-container">
+    <img src={Logo} className="logo" alt="FoodFlow Logo" style={{height:"160px", borderRadius:"8px"}}/>
+    <img src={LeftImage} className="side-image" alt="Left Illustration" />
+  </div>
+
+  {/* Center Section with App */}
+  <div id="container">
+    <App />
+  </div>
+
+  {/* Right Section with Right Image */}
+  <div className="right-container">
+    <img src={RightImage} className="side-image" alt="Right Illustration" style={{marginTop: "395px"}}/>
+  </div>
+</div>
+
     </>
   );
 }
+ 

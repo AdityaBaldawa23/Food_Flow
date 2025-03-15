@@ -3,7 +3,8 @@
     display: flex;
     gap: 50px;
     justify-content: center;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
+    /* min-height: 650px !important; */
 }
 
 /* Flip Card */
@@ -62,15 +63,14 @@
 /* Text Styling */
 .card-title {
     font-size: 50px;
-    /* color: black; */
-    color: #fdeedc; /* Soft warm ivory for a refined, elegant touch */
+    color: #fdeedc; 
 
     font-weight: bold;
 }
 
 .card-description {
-    font-size: 16px;  /* Increased font size */
-    font-weight: 500;  /* Slightly bolder for readability */
+    font-size: 14px;  
+    font-weight: 500;  
     margin-top: 10px;
     padding: 0 10px; /* Adds some spacing inside */
     line-height: 1.5;  /* Increases readability */

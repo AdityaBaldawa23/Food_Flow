@@ -1,23 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Tracker.css";
-import mealsIcon from "../../assets/meals.jpeg";
-import volunteersIcon from "../../assets/trackervolun.jpg";
-import foodSavedIcon from "../../assets/NavbarImg.webp";
+import mealsIcon from "../../assets/peoplefed.jpg";
+import volunteersIcon from "../../assets/volunteeractive.jpg";
+import foodSavedIcon from "../../assets/save.jpg";
 import rewardsIcon from "../../assets/Volunteers.jpg";
+import hourslog from "../../assets/hourlog.jpg";
+import dishes from "../../assets/ngoconfirm.jpg";
+import top from "../../assets/top.jpg";  
+import rewardreedem from "../../assets/reward.jpg";  
+import ngoaffiliated from "../../assets/affiliated.jpg";   
+import numberofdonor from "../../assets/donor.jpg";   
 
-const trackerData = [
-  { image: mealsIcon, title: "Meals Rescued Today", value: "3,010" },
-  { image: volunteersIcon, title: "Active Volunteers", value: "2,010" },
-  { image: foodSavedIcon, title: "Food Saved from Waste(kg)", value: "1,100" },
-  { image: rewardsIcon, title: "Number of Donors", value: "500" },
-  { image: rewardsIcon, title: "NGOs affiliated", value: "75" },
-  { image: rewardsIcon, title: "Rewards Redeemed", value: "2,000" },
-  { image: rewardsIcon, title: "Rewards Redeemed", value: "2,000" },
-  { image: rewardsIcon, title: "Rewards Redeemed", value: "2,000" },
-  { image: rewardsIcon, title: "Rewards Redeemed", value: "2,000" },
-];
+// import hourslog from "D:\Coding\React Hackathon\Food_Flow\src\assets\hourlog.jpg";
+
 
 export default function ImpactTracker() {
+  const [trackerData, setTrackerData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/donations/stats");
+        if (!response.ok) throw new Error("Failed to fetch data");
+        const data = await response.json();
+        console.log(data)
+
+        const formattedData = [
+          { image: mealsIcon, title: "Meals Rescued Today", value: data.totalMeals || "N/A" },
+          { image: volunteersIcon, title: "Active Volunteers", value: data.totalVolunteers || "13" },
+          { image: foodSavedIcon, title: "Food Saved from Waste(kg)", value: data.totalWeight || "N/A" },
+          { image: numberofdonor, title: "Number of Donors", value: data.totalDonors || "N/A" },
+          { image: ngoaffiliated, title: "NGOs Affiliated", value: data.totalNGOs || "12" },
+          { image: top, title: "Top Volunteer", value: data.totalRewards || "N/A" },
+          { image: dishes, title: "Total Dishes", value: data.totalDishes || "N/A" },
+          { image: rewardreedem, title: "Rewards Redeemed", value: data.totalRewards || "N/A" },
+          { image: hourslog, title: "Volunteer Hours Logged", value: data.totalRewards || "N/A" },
+        ];
+
+        setTrackerData(formattedData);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
+  if (loading) return <p>Loading impact data...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div className="tracker-container">
       <h2 className="tracker-title">Our Impact</h2>

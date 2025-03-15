@@ -1,20 +1,21 @@
-#donor-section {
-    background-image: url('../../assets/DonorFood.webp'); /* Ensure correct path */
-    background-size: contain;
+#NGO-section {
+    background-image: url('../../assets/NGO.webp'); /* Ensure correct path */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
-    color: white; /* Ensures readability */
+    color: white; 
+    margin-top: -35px;
+    min-height: 570px; 
 }
 
 /* Make heading pop */
-#donor-section h1 {
+#NGO-section h1 {
     font-size: 4rem; /* Big text */
     font-weight: 800; /* Extra bold */
     text-transform: uppercase;
@@ -23,7 +24,7 @@
 }
 
 /* Style the paragraph */
-#donor-section p {
+#NGO-section p {
     font-size: 1rem; /* Large and readable */
     font-weight: 600;
     max-width: 70%;
@@ -39,7 +40,8 @@
     color: black;
     border-radius: 10px;
     margin: 20px auto;
-    width: 80%;
+    width: 100% !important;
+    height: 250px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -62,38 +64,22 @@
     color: #666; /* Soft gray text */
 }
 
-/* Buttons */
-#buttons {
-    display: flex;
-    gap: 15px;
-}
-
 #buttons button {
-    padding: 5px;
-    font-size: .7rem;
-    font-weight: 300;
+    height: 50px;
+    width: 150px;
+    padding: 10px 15px !important;
+    font-size: 1rem !important;
+    font-weight: 500;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: 0.3s ease;
+    background-color: black !important; 
+    color: white !important; /* White text for contrast */
 }
 
-#buttons button:first-child {
-    background-color: black;
-    color: white;
-}
-
-#buttons button:first-child:hover {
-    background-color: #333;
-}
-
-#buttons button:last-child {
-    background-color: #e0e0e0;
-    color: black;
-}
-
-#buttons button:last-child:hover {
-    background-color: #d6d6d6;
+#buttons button:hover {
+    background-color: #333 !important; /* Slightly lighter black on hover */
 }
 
 /* Right section */

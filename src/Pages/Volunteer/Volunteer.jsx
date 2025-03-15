@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom"
 import Navbar from "../../components/ui/Navbar";
 import Footer from "../../components/ui/Footer";
 import "./Volunteer.css";
-import RegisterFoodImg from "../../assets/RegisterFoodImg.jpeg";
-import SchedulePickupImg from "../../assets/SchedulePickupImg.webp";
+import RegisterFoodImg from "../../assets/accept.jpg";
+import SchedulePickupImg from "../../assets/quality.jpg";
+import donation from "../../assets/donation.jpg"
 import Modal from "../Donors/ModalDonor";
 
 export default function Volunteer() {
@@ -31,18 +32,18 @@ export default function Volunteer() {
             </div>
           </div>
           <div id="right">
-            <img src={RegisterFoodImg} alt="" />
+            <img src={RegisterFoodImg} alt="" style={{height: "200px"}}/>
           </div>
         </div>
         <div id="Schedule-Pickup">
           <div id="Schedule-left">
-            <img src={SchedulePickupImg} alt="" />
+            <img src={SchedulePickupImg} alt="" style={{height: "200px", width: "300px"}}/>
           </div>
           <div id="Schedule-right">
             <h1>Quality Check</h1>
             <p>Ensure Freshness</p>
             <div id="buttons">
-              <button>Go to chatbot</button>
+              <button onClick={() => navigate("/chatbot")}>Go to chatbot</button>
             </div>
           </div>
         </div>
@@ -51,11 +52,11 @@ export default function Volunteer() {
             <h1>Check Rewards</h1>
             <p>Your Impact, your rewards</p>
             <div id="buttons">
-            <button onClick={() => navigate("/chatbot")}>Go to chatbot</button>
+            <button onClick={() => navigate("/vr")}>Reward Section</button>
             </div>
           </div>
           <div id="Donation-right">
-            <img src={SchedulePickupImg} alt="" />
+            <img src={donation} alt=""  style={{height: "200px", width: "300px"}}/>
           </div>
         </div>
         <Footer />
@@ -65,49 +66,32 @@ export default function Volunteer() {
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3>Food Donation Filters</h3>
+              <h3>Task Acceptance Form</h3>
               <button className="close-btn" onClick={() => setIsOpen(false)}>
                 &times;
               </button>
             </div>
             <div className="modal-body">
               <form>
-                <label>Food Type</label>
+                <label>Do you accept this order</label>
                 <div className="food-type">
                   <button type="button" className="food-btn veg">
-                    VEG
+                    Yes
                   </button>
                   <button type="button" className="food-btn non-veg">
-                    NON-VEG
+                    No
                   </button>
                 </div>
 
-                <label>Min. Servings</label>
-                <input
-                  type="number"
-                  placeholder="Enter min. servings"
-                  required
-                />
-
-                <label>Food Category</label>
+                <label>Donor Name</label>
+                <p>NGO ADITYA</p>
+                <label>Amount of Food</label>
                 <div className="food-category">
-                  <button type="button" className="category-btn">
-                    HOTELS
-                  </button>
-                  <button type="button" className="category-btn">
-                    EVENTS
-                  </button>
-                  <button type="button" className="category-btn">
-                    WEDDINGS
-                  </button>
+                 <p>There is 5kgs of Food at WoodHouse Hotel,Sangli</p>
                 </div>
-
-                <label>Estimated Food</label>
                 <div className="food-estimation">
-                  <input type="number" placeholder="No. of servings" required />
-                  <input type="number" placeholder="No. of dishes" required />
+                  Time : Donation Posted at 9pm
                 </div>
-
                 <button type="submit" className="next-btn">
                   NEXT
                 </button>

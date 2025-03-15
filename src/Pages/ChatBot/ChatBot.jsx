@@ -331,13 +331,21 @@ const Chatbot = () => {
         <div className="input-area">
           {!selectedCategory ? (
             Object.keys(subcategories).map((cat) => (
-              <button key={cat} onClick={() => handleUserInput(cat)}>
+              <button className="btn"
+                id={`category-${cat}`}
+                key={cat}
+                onClick={() => handleUserInput(cat)}
+              >
                 {cat}
               </button>
             ))
           ) : !selectedSubcategory ? (
             subcategories[selectedCategory].map((sub) => (
-              <button key={sub} onClick={() => handleUserInput(sub)}>
+              <button className="btn"
+                id={`subcategory-${sub}`}
+                key={sub}
+                onClick={() => handleUserInput(sub)}
+              >
                 {sub}
               </button>
             ))
@@ -352,7 +360,7 @@ const Chatbot = () => {
               if (question.type === "yesno") {
                 options = ["Yes", "No"];
               } else if (question.type === "hardsoggy") {
-                options = ["Hard/Sloggy", "No"];
+                options = ["Hard/Soggy", "No"];
               } else if (question.type === "drymoist") {
                 options = ["Dry", "Moist"];
               } else if (question.type === "airwrap") {
@@ -363,12 +371,17 @@ const Chatbot = () => {
 
               return options.length > 0 ? (
                 options.map((option) => (
-                  <button key={option} onClick={() => handleUserInput(option)}>
+                  <button className="btn"
+                    id={`option-${option.replace(/\s+/g, "-")}`}
+                    key={option}
+                    onClick={() => handleUserInput(option)}
+                  >
                     {option}
                   </button>
                 ))
               ) : (
                 <input
+                  id="expiry-date-input"
                   type="date"
                   placeholder="Enter expiry date"
                   onChange={(e) =>
@@ -382,15 +395,22 @@ const Chatbot = () => {
                       handleUserInput(e.target.value);
                     }
                   }}
-                  style={{width: "100%", color: "black", padding: "5px", borderRadius: "8px"}}
-
+                  style={{
+                    width: "100%",
+                    color: "black",
+                    padding: "5px",
+                    borderRadius: "8px",
+                  }}
                 />
               );
             })()
           ) : (
-            <button onClick={startChatbot}>Restart Quality Check</button>
+            <button className="btn" id="restart-button" onClick={startChatbot}>
+              Restart Quality Check
+            </button>
           )}
         </div>
+
       </div>
     </>
   );

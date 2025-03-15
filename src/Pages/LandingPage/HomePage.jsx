@@ -5,6 +5,7 @@ import Card from "./Card";
 import Tracker from "./Tracker";
 import Why from "./Why";
 import Footer from "../../components/ui/Footer"; // ✅ Fixed Path
+import WhyGrid from "./WhyGrid";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Card />
         <Tracker />
         <Why />
+        <WhyGrid />
         <Footer />
       </div>
     </>

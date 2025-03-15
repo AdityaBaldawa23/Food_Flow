@@ -6,6 +6,9 @@ import { BrowserRouter } from "react-router-dom";
 import NGO from './Pages/NGOs/NGO'
 import Volunteer from './Pages/Volunteer/Volunteer'
 import Chatbot from './Pages/ChatBot/ChatBot';
+import VolunteerRewards from './Pages/Reward/VolunteerRewards'
+import History from './Pages/History/History'
+import FAQSection from './Pages/FAQ/FAQ';
 function App() {
   return (
     <>
@@ -17,6 +20,9 @@ function App() {
           <Route path="/NGOs" element={<NGO />} />
           <Route path="/Volunteer" element={<Volunteer />} />
           <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/vr" element={<VolunteerRewards />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/FAQ" element={<FAQSection />} />
         </Routes>
       </BrowserRouter>
     </>

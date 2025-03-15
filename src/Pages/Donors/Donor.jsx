@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import Navbar from "../../components/ui/Navbar";
 import Footer from "../../components/ui/Footer";
 import "./Donor.css";
 import RegisterFoodImg from "../../assets/RegisterFoodImg.jpeg";
-import SchedulePickupImg from "../../assets/SchedulePickupImg.webp";
+import SchedulePickupImg from "../../assets/SchedulePickupImg.jpg";  
 
 export default function Donor() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ export default function Donor() {
     numKGs: "",
     numDishes: "",
   });
-
+ 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -38,6 +39,7 @@ export default function Donor() {
       console.error("Error saving data:", error);
     }
   };
+  const navigate = useNavigate();
 
   return (
     <>
@@ -66,31 +68,30 @@ export default function Donor() {
             <h1>Check Donation History</h1>
             <p>Track Your Impact</p>
             <div id="buttons">
-              <button>Check</button>
+              <button onClick={()=>navigate("/history")}>Check</button>
             </div>
           </div>
           <div id="Donation-right">
-            <img src={SchedulePickupImg} alt="Donation History"/>
+            <img src={SchedulePickupImg} alt="Donation History" style={{height: "220px"}}/>
           </div>
         </div>
 
         <Footer />
       </div>
-
-      {/* Modal */}
+      
       {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Food Donation Filters</h3>
-              <button className="close-btn" onClick={() => setIsOpen(false)}>&times;</button>
+              <button style={{backgroundColor: "red", width: "10px"}} className="close-btn" onClick={() => setIsOpen(false)}>&times;</button>
             </div>
             <div className="modal-body">
               <form onSubmit={handleSubmit}>
                 <label>Food Type</label>
                 <div className="food-type">
-                  <button type="button" className={`food-btn ${formData.foodType === "VEG" ? "active" : ""}`} onClick={() => handleFoodType("VEG")}>VEG</button>
-                  <button type="button" className={`food-btn ${formData.foodType === "NON-VEG" ? "active" : ""}`} onClick={() => handleFoodType("NON-VEG")}>NON-VEG</button>
+                  <button type="button" style={{backgroundColor: "green"}} className={`food-btn ${formData.foodType === "VEG" ? "active" : ""}`} onClick={() => handleFoodType("VEG")}>VEG</button>
+                  <button type="button" style={{backgroundColor: "red"}} className={`food-btn ${formData.foodType === "NON-VEG" ? "active" : ""}`} onClick={() => handleFoodType("NON-VEG")}>NON-VEG</button>
                 </div>
 
                 <label>Min. Servings</label>
@@ -98,7 +99,7 @@ export default function Donor() {
 
                 <label>Food Category</label>
                 <div className="food-category">
-                  <button type="button" className={`category-btn ${formData.foodCategory === "HOTELS" ? "active" : ""}`} onClick={() => handleFoodCategory("HOTELS")}>HOTELS</button>
+                  <button type="button" style={{backgroundColor: "black", width: "2px !important"}} className={`category-btn ${formData.foodCategory === "HOTELS" ? "active" : ""}`} onClick={() => handleFoodCategory("HOTELS")}>HOTELS</button>
                   <button type="button" className={`category-btn ${formData.foodCategory === "EVENTS" ? "active" : ""}`} onClick={() => handleFoodCategory("EVENTS")}>EVENTS</button>
                   <button type="button" className={`category-btn ${formData.foodCategory === "WEDDINGS" ? "active" : ""}`} onClick={() => handleFoodCategory("WEDDINGS")}>WEDDINGS</button>
                 </div>

@@ -1,21 +1,23 @@
 import Navbar from "../../components/ui/Navbar";
 import Footer from "../../components/ui/Footer";
 import './AboutUs.css'
-import Food from "../../assets/aboutus.jpg";
+import Food from "../../assets/Food.jpg";
 import Food1 from "../../assets/aboutus2.jpg";
 
 export default function AboutUs() {
   return (
     <>
       <div id="app">
-        <Navbar />
-        <h1>Food Redistribution and its Longing Impact</h1>
+      <Navbar class="navbar"/>
+        <div className="heading">
+        <h1 id="heading1">Food Redistribution and its Longing Impact</h1>
         <h2>
           Food redistribution is an essential strategy in addressing food
           insecurity and reducing food waste. It involves collecting surplus
           food from farms, restaurants, grocery stores, and other sources, then
           distributing it to individuals and communities in need.
         </h2>
+        </div>
         <img src={Food} id="waste"/>
         <p id="first">
           The Need for Food Redistribution Despite global food production being
@@ -26,8 +28,8 @@ export default function AboutUs() {
           this gap by redirecting surplus food to those who need it most,
           fostering a more equitable food system.
           <ol>
-            Methods of Food Redistribution
-            <p>
+            <span style={{fontSize: "25px"}}>Methods of Food Redistribution</span>
+            <p style={{fontSize: "20px", marginBottom: "10px"}}>
               Several approaches are used to facilitate food redistribution:
             </p>
             <li>
@@ -50,7 +52,7 @@ export default function AboutUs() {
           </ol>
         </p>
         <img src={Food1} id="flowchart"/>
-        <p>
+        <p id="below">
           Challenges and Future Prospects While food redistribution is highly
           beneficial, it faces challenges such as logistical constraints, food
           safety concerns, and inadequate infrastructure. Addressing these

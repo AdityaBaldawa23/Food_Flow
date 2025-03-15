@@ -3,7 +3,7 @@
   import Footer from "../../components/ui/Footer";
   import "./NGO.css";
   import NGOConfirm from "../../assets/ngoconfirm.jpg";
-  import SchedulePickupImg from "../../assets/SchedulePickupImg.webp";
+  import SchedulePickupImg from "../../assets/request.jpg";  
 
   export default function NGO() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,7 +12,7 @@
       <>
         <div id="app">
           <Navbar />
-          <div id="donor-section">
+          <div id="NGO-section">
             <h1>NGOs</h1>
             <br />
             <p>
@@ -33,7 +33,7 @@
           </div>
           <div id="Schedule-Pickup">
             <div id="Schedule-left">
-              <img src={SchedulePickupImg} alt="" />
+              <img src={SchedulePickupImg} alt="" style={{height: "200px"}}/>
             </div>
             <div id="Schedule-right">
               <h1>Request Food</h1>
@@ -50,28 +50,34 @@
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3>Sign in to our platform</h3>
-              <button className="close-btn" onClick={() => setIsOpen(false)}>
-                &times;
-              </button>
+              <h3>Food Donation Filters</h3>
+              <button style={{backgroundColor: "red", width: "10px"}} className="close-btn" onClick={() => setIsOpen(false)}>&times;</button>
             </div>
             <div className="modal-body">
-              <form>
-                <label>Email</label>
-                <input type="email" placeholder="name@company.com" required />
-                
-                <label>Password</label>
-                <input type="password" placeholder="••••••••" required />
-                
-                <div className="remember-forgot">
-                  <label>
-                    <input type="checkbox" /> Remember me
-                  </label>
-                  <a href="#">Lost Password?</a>
+              <form onSubmit={handleSubmit}>
+                <label>Food Type</label>
+                <div className="food-type">
+                  <button type="button" style={{backgroundColor: "green"}} className={`food-btn ${formData.foodType === "VEG" ? "active" : ""}`} onClick={() => handleFoodType("VEG")}>VEG</button>
+                  <button type="button" style={{backgroundColor: "red"}} className={`food-btn ${formData.foodType === "NON-VEG" ? "active" : ""}`} onClick={() => handleFoodType("NON-VEG")}>NON-VEG</button>
                 </div>
-                
-                <button type="submit" className="submit-btn">Login</button>
-                <p>Not registered? <a href="#">Create account</a></p>
+
+                <label>Min. Servings</label>
+                <input type="number" name="minServings" placeholder="Enter min. servings" required onChange={handleChange} />
+
+                <label>Food Category</label>
+                <div className="food-category">
+                  <button type="button" style={{backgroundColor: "black", width: "2px !important"}} className={`category-btn ${formData.foodCategory === "HOTELS" ? "active" : ""}`} onClick={() => handleFoodCategory("HOTELS")}>HOTELS</button>
+                  <button type="button" className={`category-btn ${formData.foodCategory === "EVENTS" ? "active" : ""}`} onClick={() => handleFoodCategory("EVENTS")}>EVENTS</button>
+                  <button type="button" className={`category-btn ${formData.foodCategory === "WEDDINGS" ? "active" : ""}`} onClick={() => handleFoodCategory("WEDDINGS")}>WEDDINGS</button>
+                </div>
+
+                <label>Estimated Food</label>
+                <div className="food-estimation">
+                  <input type="number" name="numKGs" placeholder="No. of KGs" required onChange={handleChange} />
+                  <input type="number" name="numDishes" placeholder="No. of dishes" required onChange={handleChange} />
+                </div>
+
+                <button type="submit" className="next-btn">NEXT</button>
               </form>
             </div>
           </div>
